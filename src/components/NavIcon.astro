@@ -1,0 +1,71 @@
+---
+const { icon, emoji } = Astro.props;
+const cloudinaryURL =
+  "https://res.cloudinary.com/neon-flights/image/upload/v1642973119/personal-website";
+const iconMap = {
+  twitter: {
+    icon: `${cloudinaryURL}/twitter_light_a7itpb.svg`,
+    link: "https://twitter.com/neon_flights",
+  },
+  github: {
+    icon: `${cloudinaryURL}/github_light_twjgop.svg`,
+    link: "https://github.com/georgefairbairn",
+  },
+  resume: {
+    icon: `${cloudinaryURL}/resume_light_hirr26.svg`,
+    link: `${cloudinaryURL}/Slack_Resume_rgnuke.pdf`,
+  },
+  bulb: {
+    icon: `${cloudinaryURL}/bulb_light_vpkvrt.svg`,
+    link: "#",
+  },
+};
+---
+
+{emoji && <button class={`nav-link emoji`}>{`&#${emoji}`}</button>}
+{icon && (
+  <a
+    href={iconMap[icon].link}
+    class={`nav-link ${icon}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src={iconMap[icon].icon} />
+  </a>
+)}
+
+<style>
+  .nav-link {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+  }
+
+  .emoji {
+    font-size: 1.6rem;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .twitter:hover,
+  .twitter:focus {
+    filter: invert(67%) sepia(56%) saturate(6877%) hue-rotate(182deg)
+      brightness(107%) contrast(90%);
+  }
+
+  .github:hover,
+  .github:focus {
+    filter: invert(34%) sepia(18%) saturate(1393%) hue-rotate(222deg)
+      brightness(97%) contrast(86%);
+  }
+
+  .resume:hover,
+  .resume:focus {
+    filter: invert(64%) sepia(76%) saturate(425%) hue-rotate(124deg)
+      brightness(91%) contrast(85%);
+  }
+</style>

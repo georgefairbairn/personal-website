@@ -1,0 +1,23 @@
+---
+import NavIcon from "../components/NavIcon.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <title>George Fairbairn: {title}</title>
+    <style global>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body>
+    <nav>
+      <NavIcon icon="twitter" />
+      <NavIcon icon="github" />
+      <NavIcon icon="resume" />
+      <NavIcon emoji="127770" />
+    </nav>
+    <slot />
+  </body>
+</html>
