@@ -1,13 +1,33 @@
+@font-face {
+  font-family: Raleway;
+  src: url("../../public/fonts/Raleway-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("../../public/fonts/Raleway-Regular.ttf");
+}
+
 html {
   font-size: 15px;
+  height: 100vh;
+  background-color: #f4f4f4;
 }
 
 body {
-  padding: 4rem;
+  padding: 4rem 0;
+  max-width: 76rem;
+  margin: auto;
+  font-family: Raleway;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+h1 {
+  font-size: 3.2rem;
 }
