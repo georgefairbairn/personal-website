@@ -2,9 +2,20 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Profile from "../components/Profile.astro";
 import PortfolioCard from "../components/PortfolioCard.astro";
+import JourneySoFarCard from "../components/JourneySoFarCard.astro";
 ---
 
 <BaseLayout title="Home">
   <Profile />
-  <PortfolioCard />
+  <div class="container">
+    <PortfolioCard />
+    <JourneySoFarCard />
+  </div>
 </BaseLayout>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+</style>
