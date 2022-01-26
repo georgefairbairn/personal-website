@@ -19,5 +19,16 @@ const { title } = Astro.props;
       <NavIcon emoji="127770" />
     </nav>
     <slot />
+    <p class="copyright">
+      {`&copy; ${new Date().getFullYear()} George Fairbairn`}
+    </p>
   </body>
 </html>
+
+<style>
+  .copyright {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 8rem;
+  }
+</style>
