@@ -2,33 +2,94 @@
 const { icon, emoji } = Astro.props;
 const iconMap = {
   twitter: {
-    icon: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/twitter_light_a7itpb.svg`,
+    icon_light: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/twitter_light_a7itpb.svg`,
+    icon_dark: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/twitter_dark_yyyphq.svg`,
     link: "https://twitter.com/neon_flights",
   },
   github: {
-    icon: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/github_light_twjgop.svg`,
+    icon_light: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/github_light_twjgop.svg`,
+    icon_dark: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/github_dark_kg4jhh.svg`,
     link: "https://github.com/georgefairbairn",
   },
   linkedin: {
-    icon: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/linkedin_light_hw4mt8.svg`,
+    icon_light: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/linkedin_light_hw4mt8.svg`,
+    icon_dark: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/linkedin_dark_lpveys.svg`,
     link: "https://www.linkedin.com/in/george-fairbairn/",
   },
 };
 ---
 
-{emoji && <button class={`nav-link emoji`}>{`&#${emoji}`}</button>}
+{emoji && <button class={`nav-link emoji`}>&#127770;</button>}
 {icon && (
   <a
     href={iconMap[icon].link}
-    class={`nav-link ${icon}`}
+    class={"nav-link"}
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img src={iconMap[icon].icon} />
+    <img class={`icon-light display-inline ${icon}`} src={iconMap[icon].icon_light} />
+    <img class={`icon-dark display-none ${icon}`} src={iconMap[icon].icon_dark} />
   </a>
 )}
 
+{emoji && <script>
+  const btn = document.querySelector(".emoji");
+  const lightIcons = document.getElementsByClassName("icon-light");
+  const darkIcons = document.getElementsByClassName("icon-dark");
+
+  btn.addEventListener("click", () => {
+    const currentTheme = localStorage.getItem("gf-theme");
+    if (currentTheme === "dark") {
+      localStorage.setItem("gf-theme", "light");
+      document.body.classList.remove("dark-theme");
+      document.body.classList.add("light-theme");
+      btn.innerHTML = "&#127770;";
+      for (let i = 0; i < lightIcons.length; i++) {
+        lightIcons[i].classList.remove = 'display-none';
+        lightIcons[i].style.add = 'display-inline';
+      }
+      for (let i = 0; i < darkIcons.length; i++) {
+        darkIcons[i].classList.remove = 'display-inline';
+        darkIcons[i].style.add = 'display-none';
+      }
+    } else {
+      localStorage.setItem("gf-theme", "dark");
+      document.body.classList.remove("light-theme");
+      document.body.classList.add("dark-theme");
+      btn.innerHTML = "&#128161;";
+      for (let i = 0; i < darkIcons.length; i++) {
+        darkIcons[i].classList.remove = 'display-none';
+        darkIcons[i].style.add = 'display-inline';
+      }
+      for (let i = 0; i < lightIcons.length; i++) {
+        lightIcons[i].classList.remove = 'display-inline';
+        lightIcons[i].style.add = 'display-none';
+      }
+    }
+  });
+</script>}
+
 <style>
+  .display-none {
+    display: none;
+  }
+
+  .display-inline {
+    display: inline;
+  }
+
   .nav-link {
     display: flex;
     align-items: center;
@@ -45,21 +106,36 @@ const iconMap = {
     outline: inherit;
   }
 
-  .twitter:hover,
-  .twitter:focus {
+  .icon-light.twitter:hover,
+  .icon-light.twitter:focus {
     filter: invert(67%) sepia(56%) saturate(6877%) hue-rotate(182deg)
       brightness(107%) contrast(90%);
   }
 
-  .github:hover,
-  .github:focus {
+  .icon-dark.twitter:hover,
+  .icon-dark.twitter:focus {
+    filter: brightness(0) saturate(100%) invert(66%) sepia(36%) saturate(7133%) hue-rotate(176deg) brightness(96%) contrast(98%);
+  }
+
+  .icon-light.github:hover,
+  .icon-light.github:focus {
     filter: invert(34%) sepia(18%) saturate(1393%) hue-rotate(222deg)
       brightness(97%) contrast(86%);
   }
 
-  .linkedin:hover,
-  .linkedin:focus {
+  .icon-dark.linkedin:hover,
+  .icon-dark.linkedin:focus {
+    filter: brightness(0) saturate(100%) invert(34%) sepia(17%) saturate(1607%) hue-rotate(222deg) brightness(96%) contrast(80%);
+  }
+
+  .icon-light.linkedin:hover,
+  .icon-light.linkedin:focus {
     filter: invert(27%) sepia(85%) saturate(1451%) hue-rotate(191deg)
       brightness(96%) contrast(98%);
+  }
+
+  .icon-dark.linkedin:hover,
+  .icon-dark.linkedin:focus {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(82%) saturate(4053%) hue-rotate(185deg) brightness(90%) contrast(101%);
   }
 </style>

@@ -1,4 +1,5 @@
 ---
+// import NavIcon from "../components/NavIcon/NavIcon.tsx";
 import NavIcon from "../components/NavIcon.astro";
 
 const { title } = Astro.props;
@@ -11,12 +12,12 @@ const { title } = Astro.props;
       @import "../styles/global.css";
     </style>
   </head>
-  <body>
+  <body class="light-theme">
     <nav>
       <NavIcon icon="twitter" />
       <NavIcon icon="github" />
       <NavIcon icon="linkedin" />
-      <NavIcon emoji="127770" />
+      <NavIcon emoji client:idle />
     </nav>
     <slot />
     <p class="copyright">
@@ -24,6 +25,14 @@ const { title } = Astro.props;
     </p>
   </body>
 </html>
+
+<script>
+  const currentTheme = localStorage.getItem("gf-theme");
+  const defaultTheme = "light";
+  if (!currentTheme) {
+    localStorage.setItem("gf-theme", defaultTheme);
+  }
+</script>
 
 <style>
   .copyright {
