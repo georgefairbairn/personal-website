@@ -11,8 +11,6 @@
 
 html {
   font-size: 15px;
-  height: 100vh;
-  background-color: #f4f4f4;
 }
 
 body {
@@ -20,6 +18,13 @@ body {
   max-width: 76rem;
   margin: auto;
   font-family: Raleway;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+body.dark-theme {
+  color: #ffffff;
+  background-color: #2b303f;
 }
 
 nav {
