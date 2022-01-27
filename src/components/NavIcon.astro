@@ -57,12 +57,12 @@ const iconMap = {
       document.body.classList.add("light-theme");
       btn.innerHTML = "&#127770;";
       for (let i = 0; i < lightIcons.length; i++) {
-        lightIcons[i].classList.remove = 'display-none';
-        lightIcons[i].style.add = 'display-inline';
+        lightIcons[i].classList.remove("display-none");
+        lightIcons[i].classList.add("display-inline");
       }
       for (let i = 0; i < darkIcons.length; i++) {
-        darkIcons[i].classList.remove = 'display-inline';
-        darkIcons[i].style.add = 'display-none';
+        darkIcons[i].classList.remove("display-inline");
+        darkIcons[i].classList.add("display-none");
       }
     } else {
       localStorage.setItem("gf-theme", "dark");
@@ -70,12 +70,12 @@ const iconMap = {
       document.body.classList.add("dark-theme");
       btn.innerHTML = "&#128161;";
       for (let i = 0; i < darkIcons.length; i++) {
-        darkIcons[i].classList.remove = 'display-none';
-        darkIcons[i].style.add = 'display-inline';
+        darkIcons[i].classList.remove("display-none");
+        darkIcons[i].classList.add("display-inline");
       }
       for (let i = 0; i < lightIcons.length; i++) {
-        lightIcons[i].classList.remove = 'display-inline';
-        lightIcons[i].style.add = 'display-none';
+        lightIcons[i].classList.remove("display-inline");
+        lightIcons[i].classList.add("display-none");
       }
     }
   });
@@ -123,8 +123,8 @@ const iconMap = {
       brightness(97%) contrast(86%);
   }
 
-  .icon-dark.linkedin:hover,
-  .icon-dark.linkedin:focus {
+  .icon-dark.github:hover,
+  .icon-dark.github:focus {
     filter: brightness(0) saturate(100%) invert(34%) sepia(17%) saturate(1607%) hue-rotate(222deg) brightness(96%) contrast(80%);
   }
 
