@@ -1,4 +1,4 @@
-<div class="journey-so-far-container">
+<a href="/journey-so-far" class="journey-so-far-container">
   <h2 class="title">The journey so far</h2>
   <svg
     width="197"
@@ -1482,7 +1482,7 @@
       </clipPath>
     </defs>
   </svg>
-</div>
+</a>
 
 <style>
   @keyframes raise {
@@ -1499,7 +1499,8 @@
     text-align: center;
   }
 
-  .journey-so-far-container:hover #magnifying-glass {
+  .journey-so-far-container:hover #magnifying-glass,
+  .journey-so-far-container:focus #magnifying-glass {
     animation: raise 4000ms forwards;
   }
 </style>

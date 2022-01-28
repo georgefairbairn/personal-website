@@ -1,4 +1,4 @@
-<div class="portfolio-container">
+<a href="/portfolio" class="portfolio-container">
   <h2 class="title">Project portfolio</h2>
   <svg
     width="184"
@@ -679,7 +679,7 @@
       </clipPath>
     </defs>
   </svg>
-</div>
+</a>
 
 <style>
   @keyframes slide {
@@ -699,7 +699,8 @@
     text-align: center;
   }
 
-  .portfolio-container:hover #painting {
+  .portfolio-container:hover #painting,
+  .portfolio-container:focus #painting {
     animation: slide 4000ms infinite;
   }
 </style>

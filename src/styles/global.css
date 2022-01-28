@@ -36,3 +36,8 @@ nav {
 h1 {
   font-size: 3.2rem;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
