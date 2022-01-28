@@ -1,4 +1,4 @@
-<div class="contact-me-container">
+<a href="/contact-me" class="contact-me-container">
   <h2 class="title">Contact me</h2>
   <svg
     width="203"
@@ -315,7 +315,7 @@
       </clipPath>
     </defs>
   </svg>
-</div>
+</a>
 
 <style>
   @keyframes move-left {
@@ -347,11 +347,13 @@
     text-align: center;
   }
 
-  .contact-me-container:hover #right-envelope {
+  .contact-me-container:hover #right-envelope,
+  .contact-me-container:focus #right-envelope {
     animation: move-left 4000ms infinite;
   }
 
-  .contact-me-container:hover #left-envelope {
+  .contact-me-container:hover #left-envelope,
+  .contact-me-container:focus #left-envelope {
     animation: move-right 4000ms infinite;
   }
 </style>

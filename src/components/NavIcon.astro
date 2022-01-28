@@ -31,7 +31,7 @@ const iconMap = {
 };
 ---
 
-{emoji && <button class={`nav-link emoji`}>&#127770;</button>}
+{emoji && <button aria-label="toggle dark mode" class={`nav-link emoji`}>&#127770;</button>}
 {icon && (
   <a
     href={iconMap[icon].link}
@@ -39,8 +39,8 @@ const iconMap = {
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img class={`icon-light display-inline ${icon}`} src={iconMap[icon].icon_light} />
-    <img class={`icon-dark display-none ${icon}`} src={iconMap[icon].icon_dark} />
+    <img alt={icon} class={`icon-light display-inline ${icon}`} src={iconMap[icon].icon_light} />
+    <img alt={icon} class={`icon-dark display-none ${icon}`} src={iconMap[icon].icon_dark} />
   </a>
 )}
 
@@ -104,6 +104,12 @@ const iconMap = {
     padding: 0;
     cursor: pointer;
     outline: inherit;
+  }
+
+  .emoji:focus {
+    outline: auto;
+    border: inherit;
+    border-color: blue;
   }
 
   .icon-light.twitter:hover,
