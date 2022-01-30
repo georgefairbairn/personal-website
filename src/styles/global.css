@@ -27,6 +27,13 @@ body.dark-theme {
   background-color: #2b303f;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
 h1 {
   font-size: 3.2rem;
 }

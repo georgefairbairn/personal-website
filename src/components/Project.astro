@@ -1,0 +1,162 @@
+---
+const { project, flip } = Astro.props;
+
+const technologies = {
+  react: {
+    logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/react_mefvhx.svg`,
+    link: "https://reactjs.org/",
+  },
+  typescript: {
+    logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/typescript_nutfsj.svg`,
+    link: "https://www.typescriptlang.org/",
+  },
+  javascript: {
+    logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/javascript_i1tsgl.svg`,
+    link: "https://www.javascript.com/",
+  },
+  redux: {
+    logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/redux_ckdhwq.svg`,
+    link: "https://redux.js.org/",
+  },
+  jest: {
+    logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/jest_dp5xba.svg`,
+    link: "https://jestjs.io/",
+  },
+  chartjs: {
+    logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/jest_dp5xba.svg`,
+    link: "https://www.chartjs.org/",
+  },
+};
+
+const projects = {
+  comprehensible_invites: {
+    title: "Comprehensible Invites",
+    imgSrc: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/comprehensible_invites_t180i1.svg`,
+    company: {
+      name: "Slack",
+      logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/Slack_zhfq4x`,
+    },
+    dates: "August 2021 - January 2022",
+    content:
+      "This project aimed to improve the invite experience when adding people outside your workspace to a channel using Slack Connect. I helped build a step-by-step flow that guided users to send the correct invite type in a thoughtfully designed, intelligently architected and pleasant experience.<br /><br />This was a key company project and led to increased Slack Connect channel adoption and a reduction in Slack Connect invites accidentally sent to internal teammates.",
+    technologies: ["typescript", "react", "javascript", "redux", "jest"],
+  },
+  voleo: {
+    title: "Voleo",
+    imgSrc: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/voleo_vgjd0v.svg`,
+    company: {
+      name: "Convergence Concepts",
+      logo: `${
+        import.meta.env.PUBLIC_CLOUDINARY_URL
+      }/convergence_logo_wh6t5r.svg`,
+    },
+    dates: "November 2019 - April 2020",
+    content:
+      "Voleo is a social trading platform allowing users to join trading groups and make investment decisions as a team. In this project, I worked on the front-end of the site, implementing the login & account creation flows, as well as the trade creation pages.<br /><br />I implemented a re-usable mechanism to interact with the Voleo API&apos;s, and leveraged NPM graphing libraries like Chart.js to visualise trading data. I also helped to build the counterpart native mobile application in React Native.",
+    technologies: ["react", "javascript", "chartjs"],
+  },
+};
+---
+
+<div class="project-container">
+  {flip ? (
+    <>
+      <div class="project-info-flip">
+        <h3>{projects[project].title}</h3>
+        <p class="subtext">
+          <img class="company-logo" src={`${projects[project].company.logo}`} />
+          <strong>{`${projects[project].company.name}`}&nbsp;</strong>
+          {`| ${projects[project].dates}`}
+        </p>
+        <p class="content">{projects[project].content}</p>
+        <div class="technologies-container">
+          <p>
+            <strong>Technologies used:</strong>
+          </p>
+          {projects[project].technologies.map((tech: string) => (
+            <a
+              href={technologies[tech].link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img class="technology" src={technologies[tech].logo} />
+            </a>
+          ))}
+        </div>
+      </div>
+      <img class="project-image" src={projects[project].imgSrc} />
+    </>
+  ) : (
+    <>
+      <img class="project-image" src={projects[project].imgSrc} />
+      <div class="project-info">
+        <h3>{projects[project].title}</h3>
+        <p class="subtext">
+          <img class="company-logo" src={`${projects[project].company.logo}`} />
+          <strong>{`${projects[project].company.name}`}&nbsp;</strong>
+          {`| ${projects[project].dates}`}
+        </p>
+        <p class="content">{projects[project].content}</p>
+        <div class="technologies-container">
+          <p>
+            <strong>Technologies used:</strong>
+          </p>
+          {projects[project].technologies.map((tech: string) => (
+            <a
+              href={technologies[tech].link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img class="technology" src={technologies[tech].logo} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </>
+  )}
+</div>
+
+<style>
+  .project-container {
+    display: flex;
+    margin: 6.667rem 0;
+  }
+
+  .project-info-flip {
+    margin-right: 2rem;
+    max-width: 42rem;
+  }
+
+  .project-info {
+    margin-left: 2rem;
+    max-width: 42rem;
+  }
+
+  .project-image {
+    flex: 1;
+  }
+
+  .company-logo {
+    display: inline;
+    height: auto;
+    width: 1rem;
+    margin-right: 0.25rem;
+  }
+
+  .subtext {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    margin: 0.267rem 0 0.867rem;
+  }
+
+  .technologies-container {
+    margin-top: 2.5rem;
+  }
+
+  .technology {
+    margin: 0.5rem 1rem 0 0;
+  }
+</style>

@@ -1,7 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Project from "../components/Project.astro";
 ---
 
 <BaseLayout title="Project portfolio">
-  <h2>Project portfolio</h2>
+  <h2 class="portfolio-title">Project portfolio</h2>
+  <Project project="comprehensible_invites" />
+  <div class="h-rule"></div>
+  <Project project="voleo" flip />
 </BaseLayout>
+
+<style>
+  body.light-theme > .portfolio-title {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dadce5;
+  }
+
+  body.dark-theme > .portfolio-title {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #424c6b;
+  }
+
+  body.light-theme > .h-rule {
+    border-bottom: 1px solid #dadce5;
+    margin: 0 20%;
+  }
+
+  body.dark-theme > .h-rule {
+    border-bottom: 1px solid #424c6b;
+    margin: 0 20%;
+  }
+</style>
