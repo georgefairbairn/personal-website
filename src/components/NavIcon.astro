@@ -1,5 +1,5 @@
 ---
-const { icon, emoji } = Astro.props;
+const { icon, emoji, link } = Astro.props;
 const iconMap = {
   twitter: {
     icon_light: `${
@@ -28,6 +28,15 @@ const iconMap = {
     }/linkedin_dark_lpveys.svg`,
     link: "https://www.linkedin.com/in/george-fairbairn/",
   },
+  back: {
+    icon_light: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/back_button_light_vrjwaf.svg`,
+    icon_dark: `${
+      import.meta.env.PUBLIC_CLOUDINARY_URL
+    }/back_button_dark_yovrzc.svg`,
+    link: link ?? "/",
+  },
 };
 ---
 
@@ -35,9 +44,9 @@ const iconMap = {
 {icon && (
   <a
     href={iconMap[icon].link}
-    class={"nav-link"}
-    target="_blank"
-    rel="noopener noreferrer"
+    class={`nav-link${icon === 'back' ? " back-button" : ""}`}
+    target={icon === 'back' ? "" : "_blank"}
+    rel={icon === 'back' ? "" : "noopener noreferrer"}
   >
     <img alt={icon} class={`icon-light display-inline ${icon}`} src={iconMap[icon].icon_light} />
     <img alt={icon} class={`icon-dark display-none ${icon}`} src={iconMap[icon].icon_dark} />
@@ -96,6 +105,10 @@ const iconMap = {
     margin-left: 2rem;
   }
 
+  .back-button {
+    margin-left: 0;
+  }
+
   .emoji {
     font-size: 1.6rem;
     background: none;
@@ -106,10 +119,9 @@ const iconMap = {
     outline: inherit;
   }
 
-  .emoji:focus {
+  .emoji:focus-visible {
     outline: auto;
     border: inherit;
-    border-color: blue;
   }
 
   .icon-light.twitter:hover,

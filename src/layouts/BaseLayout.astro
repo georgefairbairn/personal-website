@@ -1,8 +1,15 @@
 ---
-// import NavIcon from "../components/NavIcon/NavIcon.tsx";
 import NavIcon from "../components/NavIcon.astro";
 
 const { title } = Astro.props;
+const { url } = Astro.request;
+
+let shouldShowBackButton: boolean;
+if (import.meta.env.DEV) {
+  shouldShowBackButton = url.toString() !== import.meta.env.PUBLIC_DEV_URL;
+} else {
+  shouldShowBackButton = url.toString() !== import.meta.env.PUBLIC_PROD_URL;
+}
 ---
 
 <html lang="en">
@@ -14,10 +21,13 @@ const { title } = Astro.props;
   </head>
   <body class="light-theme">
     <nav>
-      <NavIcon icon="twitter" />
-      <NavIcon icon="github" />
-      <NavIcon icon="linkedin" />
-      <NavIcon emoji client:idle />
+      {shouldShowBackButton && <NavIcon icon="back" />}
+      <div class="nav-right">
+        <NavIcon icon="twitter" />
+        <NavIcon icon="github" />
+        <NavIcon icon="linkedin" />
+        <NavIcon emoji client:idle />
+      </div>
     </nav>
     <slot />
     <p class="copyright">
@@ -35,6 +45,19 @@ const { title } = Astro.props;
 </script>
 
 <style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
   .copyright {
     text-align: center;
     font-size: 0.75rem;
