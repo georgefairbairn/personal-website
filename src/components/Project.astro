@@ -60,103 +60,70 @@ const projects = {
 };
 ---
 
-<div class="project-container">
+<div class="flex my-24">
   {flip ? (
     <>
-      <div class="project-info-flip">
-        <h3>{projects[project].title}</h3>
-        <p class="subtext">
-          <img class="company-logo" src={`${projects[project].company.logo}`} />
+      <div class="mr-8 max-w-2xl">
+        <h3 class="text-2xl font-bold">{projects[project].title}</h3>
+        <p class="flex items-center text-xs mt-1 mb-3.5">
+          <img
+            class="inline h-auto w-4 mr-1"
+            src={`${projects[project].company.logo}`}
+          />
           <strong>{`${projects[project].company.name}`}&nbsp;</strong>
           {`| ${projects[project].dates}`}
         </p>
-        <p class="content">{projects[project].content}</p>
-        <div class="technologies-container">
+        <p>{projects[project].content}</p>
+        <div class="mt-10">
           <p>
             <strong>Technologies used:</strong>
           </p>
-          {projects[project].technologies.map((tech: string) => (
-            <a
-              href={technologies[tech].link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img class="technology" src={technologies[tech].logo} />
-            </a>
-          ))}
+          <div class="flex">
+            {projects[project].technologies.map((tech: string) => (
+              <a
+                href={technologies[tech].link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img class="mt-2 mr-4" src={technologies[tech].logo} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-      <img class="project-image" src={projects[project].imgSrc} />
+      <img class="flex-1" src={projects[project].imgSrc} />
     </>
   ) : (
     <>
-      <img class="project-image" src={projects[project].imgSrc} />
-      <div class="project-info">
-        <h3>{projects[project].title}</h3>
-        <p class="subtext">
-          <img class="company-logo" src={`${projects[project].company.logo}`} />
+      <img class="flex-1" src={projects[project].imgSrc} />
+      <div class="ml-8 max-w-2xl">
+        <h3 class="text-2xl font-bold">{projects[project].title}</h3>
+        <p class="flex items-center text-xs mt-1 mb-3.5">
+          <img
+            class="inline h-auto w-4 mr-1"
+            src={`${projects[project].company.logo}`}
+          />
           <strong>{`${projects[project].company.name}`}&nbsp;</strong>
           {`| ${projects[project].dates}`}
         </p>
-        <p class="content">{projects[project].content}</p>
-        <div class="technologies-container">
+        <p>{projects[project].content}</p>
+        <div class="mt-10">
           <p>
             <strong>Technologies used:</strong>
           </p>
-          {projects[project].technologies.map((tech: string) => (
-            <a
-              href={technologies[tech].link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img class="technology" src={technologies[tech].logo} />
-            </a>
-          ))}
+          <div class="flex">
+            {projects[project].technologies.map((tech: string) => (
+              <a
+                href={technologies[tech].link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img class="mt-2 mr-4" src={technologies[tech].logo} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </>
   )}
 </div>
-
-<style>
-  .project-container {
-    display: flex;
-    margin: 6.667rem 0;
-  }
-
-  .project-info-flip {
-    margin-right: 2rem;
-    max-width: 42rem;
-  }
-
-  .project-info {
-    margin-left: 2rem;
-    max-width: 42rem;
-  }
-
-  .project-image {
-    flex: 1;
-  }
-
-  .company-logo {
-    display: inline;
-    height: auto;
-    width: 1rem;
-    margin-right: 0.25rem;
-  }
-
-  .subtext {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    margin: 0.267rem 0 0.867rem;
-  }
-
-  .technologies-container {
-    margin-top: 2.5rem;
-  }
-
-  .technology {
-    margin: 0.5rem 1rem 0 0;
-  }
-</style>

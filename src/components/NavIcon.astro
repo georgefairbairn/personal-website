@@ -40,16 +40,31 @@ const iconMap = {
 };
 ---
 
-{emoji && <button aria-label="toggle dark mode" class={`nav-link emoji`}>&#127770;</button>}
+{emoji && (
+  <button
+    aria-label="toggle dark mode"
+    class="flex items-center ml-8 text-3xl bg-none text-inherit border-none p-0 cursor-pointer outline-inherit focus-visible:outline-blue-700 emoji"
+  >
+    &#127770;
+  </button>
+)}
 {icon && (
   <a
     href={iconMap[icon].link}
-    class={`nav-link${icon === 'back' ? " back-button" : ""}`}
-    target={icon === 'back' ? "" : "_blank"}
-    rel={icon === 'back' ? "" : "noopener noreferrer"}
+    class={`flex items-center ${icon === "back" ? "ml-0" : "ml-8"}`}
+    target={icon === "back" ? "" : "_blank"}
+    rel={icon === "back" ? "" : "noopener noreferrer"}
   >
-    <img alt={icon} class={`icon-light display-inline ${icon}`} src={iconMap[icon].icon_light} />
-    <img alt={icon} class={`icon-dark display-none ${icon}`} src={iconMap[icon].icon_dark} />
+    <img
+      alt={icon}
+      class={`inline ${iconMap[icon].hover_light}`}
+      src={iconMap[icon].icon_light}
+    />
+    <img
+      alt={icon}
+      class={`icon-dark hidden ${icon}`}
+      src={iconMap[icon].icon_dark}
+    />
   </a>
 )}
 
@@ -66,12 +81,12 @@ const iconMap = {
       document.body.classList.add("light-theme");
       btn.innerHTML = "&#127770;";
       for (let i = 0; i < lightIcons.length; i++) {
-        lightIcons[i].classList.remove("display-none");
-        lightIcons[i].classList.add("display-inline");
+        lightIcons[i].classList.remove("hidden");
+        lightIcons[i].classList.add("inline");
       }
       for (let i = 0; i < darkIcons.length; i++) {
-        darkIcons[i].classList.remove("display-inline");
-        darkIcons[i].classList.add("display-none");
+        darkIcons[i].classList.remove("inline");
+        darkIcons[i].classList.add("hidden");
       }
     } else {
       localStorage.setItem("gf-theme", "dark");
@@ -79,81 +94,13 @@ const iconMap = {
       document.body.classList.add("dark-theme");
       btn.innerHTML = "&#128161;";
       for (let i = 0; i < darkIcons.length; i++) {
-        darkIcons[i].classList.remove("display-none");
-        darkIcons[i].classList.add("display-inline");
+        darkIcons[i].classList.remove("hidden");
+        darkIcons[i].classList.add("inline");
       }
       for (let i = 0; i < lightIcons.length; i++) {
-        lightIcons[i].classList.remove("display-inline");
-        lightIcons[i].classList.add("display-none");
+        lightIcons[i].classList.remove("inline");
+        lightIcons[i].classList.add("hidden");
       }
     }
   });
 </script>}
-
-<style>
-  .display-none {
-    display: none;
-  }
-
-  .display-inline {
-    display: inline;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    margin-left: 2rem;
-  }
-
-  .back-button {
-    margin-left: 0;
-  }
-
-  .emoji {
-    font-size: 1.6rem;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: inherit;
-  }
-
-  .emoji:focus-visible {
-    outline: auto;
-    border: inherit;
-  }
-
-  .icon-light.twitter:hover,
-  .nav-link:focus > .icon-light.twitter {
-    filter: invert(67%) sepia(56%) saturate(6877%) hue-rotate(182deg)
-      brightness(107%) contrast(90%);
-  }
-
-  .icon-dark.twitter:hover,
-  .nav-link:focus > .icon-dark.twitter {
-    filter: brightness(0) saturate(100%) invert(66%) sepia(36%) saturate(7133%) hue-rotate(176deg) brightness(96%) contrast(98%);
-  }
-
-  .icon-light.github:hover,
-  .nav-link:focus > .icon-light.github {
-    filter: invert(34%) sepia(18%) saturate(1393%) hue-rotate(222deg)
-      brightness(97%) contrast(86%);
-  }
-
-  .icon-dark.github:hover,
-  .nav-link:focus > .icon-dark.github {
-    filter: brightness(0) saturate(100%) invert(34%) sepia(17%) saturate(1607%) hue-rotate(222deg) brightness(96%) contrast(80%);
-  }
-
-  .icon-light.linkedin:hover,
-  .nav-link:focus > .icon-light.linkedin {
-    filter: invert(27%) sepia(85%) saturate(1451%) hue-rotate(191deg)
-      brightness(96%) contrast(98%);
-  }
-
-  .icon-dark.linkedin:hover,
-  .nav-link:focus > .icon-dark.linkedin {
-    filter: brightness(0) saturate(100%) invert(26%) sepia(82%) saturate(4053%) hue-rotate(185deg) brightness(90%) contrast(101%);
-  }
-</style>

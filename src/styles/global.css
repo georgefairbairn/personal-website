@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: Raleway;
   src: url("/fonts/Raleway-Bold.ttf");
@@ -13,7 +17,7 @@ html {
   font-size: 15px;
 }
 
-body {
+/* body {
   padding: 4rem 0;
   max-width: 76rem;
   margin: auto;
@@ -49,4 +53,4 @@ h3 {
 a {
   text-decoration: none;
   color: inherit;
-}
+} */

@@ -1,58 +1,21 @@
-<div class="container">
+<div class="flex justify-center items-center mb-32">
   <div>
     <img
-      class="avatar"
+      class="h-40 w-40 rounded-full mr-10"
       src={`${import.meta.env.PUBLIC_CLOUDINARY_URL}/profilpicsquare_qphjkn`}
       alt="profile picture"
     />
   </div>
-  <div class="sub-container">
-    <h1 class="name">George Fairbairn</h1>
-    <p class="bio">
+  <div class="flex flex-col justify-between">
+    <h1 class="font-bold text-5xl mb-3">George Fairbairn</h1>
+    <p class="max-w-lg">
       I&#8217;m a Vancouver-based Software Engineer specializing in building
-      exceptional digital experiences. Currently, I&#8217;m a Frontend Engineer
-      at <br /><img
-        class="slack-logo"
+      exceptional digital experiences on the web. Currently, I&#8217;m a
+      Frontend Engineer at <img
+        class="inline h-auto w-4 mr-1"
         src={`${import.meta.env.PUBLIC_CLOUDINARY_URL}/Slack_zhfq4x`}
       /><strong>Slack</strong>, helping make people&#8217;s lives more simple,
       pleasant and productive.
     </p>
   </div>
 </div>
-
-<style>
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 8rem;
-  }
-
-  .sub-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .avatar {
-    height: 10rem;
-    width: 10rem;
-    border-radius: 5rem;
-    margin-right: 2.333rem;
-  }
-
-  .name {
-    margin: 0;
-  }
-
-  .bio {
-    max-width: 33rem;
-  }
-
-  .slack-logo {
-    display: inline;
-    height: auto;
-    width: 1rem;
-    margin-right: 0.25rem;
-  }
-</style>
