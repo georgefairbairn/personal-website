@@ -1,5 +1,5 @@
-<a href="/portfolio" class="portfolio-container">
-  <h3 class="title">Project portfolio</h3>
+<a href="/portfolio" class="group">
+  <h3 class="mb-8 text-center text-2xl font-bold">Project portfolio</h3>
   <svg
     width="184"
     height="200"
@@ -113,57 +113,57 @@
         fill="#DADCE5"></path>
       <!-- CRANE HANDLE RIGHT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M108.672 82.132L106.8 89.628V83.212L108.672 82.132Z"
         fill="#232733"></path>
       <!-- CRANE HANDLE LEFT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M86.868 69.424L84.996 76.924V70.508L86.868 69.424Z"
         fill="#232733"></path>
       <!-- IMAGE CANVAS -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M117.656 115.932L73.088 90.2C72.8219 90.009 72.6044 89.7582 72.4529 89.4678C72.3015 89.1774 72.2203 88.8555 72.216 88.528V65.728C72.216 65.084 72.616 64.788 73.088 65.068L117.656 90.8C117.923 90.9897 118.141 91.2396 118.293 91.5294C118.445 91.8191 118.527 92.1407 118.532 92.468V115.288C118.532 115.916 118.14 116.212 117.656 115.932Z"
         fill="#E9EAF2"></path>
       <!-- MOUNTAINS -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M85.492 89.2L83.076 82.972L78.676 89.232L83.508 92.024L87.476 94.316L96.336 99.432L89.92 82.9L85.492 89.2Z"
         fill="#EAC4D5"></path>
       <!-- SUN -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M110.381 95.9153C111.508 95.2648 111.507 93.1538 110.38 91.2005C109.252 89.2472 107.424 88.1911 106.297 88.8417C105.17 89.4922 105.171 91.6032 106.299 93.5565C107.427 95.5098 109.254 96.5659 110.381 95.9153Z"
         fill="#EAC4D5"></path>
       <!-- CRANE ARM RIGHT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M105.98 80.576L105.976 72.024L103.552 70.204V80.576L100.856 82.132L104.764 84.388L108.672 82.132L105.98 80.576Z"
         fill="#353C4C"></path>
       <!-- CRANE HANDLE RIGHT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M104.764 84.388L106.8 89.628V83.576V83.212L104.764 84.388Z"
         fill="#232733"></path>
       <!-- CRANE HANDLE RIGHT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M100.856 82.132L102.588 87.164L106.8 89.628L104.764 84.388L100.856 82.132Z"
         fill="#2B303F"></path>
       <!-- CRANE ARM LEFT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M84.172 67.872V57.496H81.748V67.868L79.052 69.424L82.96 71.684L86.868 69.424L84.172 67.872Z"
         fill="#353C4C"></path>
       <!-- CRANE HANDLE LEFT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M82.96 71.684L84.996 76.924V70.872V70.508L82.96 71.684Z"
         fill="#232733"></path>
       <!-- CRANE HANDLE LEFT -->
       <path
-        id="painting"
+        class="group-hover:animate-crane-slide group-focus:animate-crane-slide"
         d="M79.052 69.424L80.784 74.456L84.996 76.924L82.96 71.684L79.052 69.424Z"
         fill="#2B303F"></path>
       <path
@@ -680,27 +680,3 @@
     </defs>
   </svg>
 </a>
-
-<style>
-  @keyframes slide {
-    0% {
-      transform: translate(0%, 0%);
-    }
-    50% {
-      transform: translate(-10%, -5%);
-    }
-    100% {
-      transform: translate(0%, 0%);
-    }
-  }
-
-  .title {
-    margin: 0 0 2rem;
-    text-align: center;
-  }
-
-  .portfolio-container:hover #painting,
-  .portfolio-container:focus #painting {
-    animation: slide 4000ms infinite;
-  }
-</style>

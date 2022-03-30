@@ -1,5 +1,6 @@
 ---
 import NavIcon from "../components/NavIcon.astro";
+import "../styles/global.css";
 
 const { title } = Astro.props;
 const { url } = Astro.request;
@@ -15,14 +16,11 @@ if (import.meta.env.DEV) {
 <html lang="en">
   <head>
     <title>George Fairbairn | {title}</title>
-    <style global>
-      @import "../styles/global.css";
-    </style>
   </head>
-  <body class="light-theme">
-    <nav>
+  <body class="font-sans py-16 max-w-7xl m-auto h-screen bg-stone-100">
+    <nav class="flex justify-between items-center mb-20">
       {shouldShowBackButton && <NavIcon icon="back" />}
-      <div class="nav-right">
+      <div class="flex flex-1 justify-end items-center">
         <NavIcon icon="twitter" />
         <NavIcon icon="github" />
         <NavIcon icon="linkedin" />
@@ -30,8 +28,9 @@ if (import.meta.env.DEV) {
       </div>
     </nav>
     <slot />
-    <p class="copyright">
-      {`&copy; ${new Date().getFullYear()} George Fairbairn`}
+    <p class="text-center text-xs px-0 pt-32 pb-16">
+      <span>&copy;</span>
+      <span>{`${new Date().getFullYear()} George Fairbairn`}</span>
     </p>
   </body>
 </html>
@@ -43,25 +42,3 @@ if (import.meta.env.DEV) {
     localStorage.setItem("gf-theme", defaultTheme);
   }
 </script>
-
-<style>
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5rem;
-  }
-
-  .nav-right {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .copyright {
-    text-align: center;
-    font-size: 0.75rem;
-    padding: 8rem 0 4rem;
-  }
-</style>
