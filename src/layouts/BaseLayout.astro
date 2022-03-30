@@ -1,5 +1,6 @@
 ---
 import NavIcon from "../components/NavIcon.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 import "../styles/global.css";
 
 const { title } = Astro.props;
@@ -16,29 +17,34 @@ if (import.meta.env.DEV) {
 <html lang="en">
   <head>
     <title>George Fairbairn | {title}</title>
+    <script>
+      if (
+        localStorage.getItem("gf-theme") === "dark" ||
+        (!("gf-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <body class="font-sans py-16 max-w-7xl m-auto h-screen bg-stone-100">
+  <body
+    class="font-sans py-16 max-w-7xl m-auto h-screen bg-stone-100 dark:bg-slate-900"
+  >
     <nav class="flex justify-between items-center mb-20">
       {shouldShowBackButton && <NavIcon icon="back" />}
       <div class="flex flex-1 justify-end items-center">
         <NavIcon icon="twitter" />
         <NavIcon icon="github" />
         <NavIcon icon="linkedin" />
-        <NavIcon emoji client:idle />
+        <ThemeToggle />
       </div>
     </nav>
     <slot />
-    <p class="text-center text-xs px-0 pt-32 pb-16">
+    <p class="text-center text-xs px-0 pt-32 pb-16 dark:text-slate-400">
       <span>&copy;</span>
       <span>{`${new Date().getFullYear()} George Fairbairn`}</span>
     </p>
   </body>
 </html>
-
-<script>
-  const currentTheme = localStorage.getItem("gf-theme");
-  const defaultTheme = "light";
-  if (!currentTheme) {
-    localStorage.setItem("gf-theme", defaultTheme);
-  }
-</script>
