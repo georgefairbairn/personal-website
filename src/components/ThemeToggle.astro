@@ -1,0 +1,54 @@
+<button
+  id="theme-toggle"
+  aria-label="toggle theme"
+  class="flex items-center ml-8 text-3xl bg-none text-inherit border-none p-0 cursor-pointer outline-inherit focus-visible:outline-blue-700 emoji"
+>
+  <span id="theme-toggle-dark-icon" class="hidden"> &#127770; </span>
+  <span id="theme-toggle-light-icon" class="hidden"> &#128161; </span>
+</button>
+
+<script>
+  const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+  const themeToggleLightIcon = document.getElementById(
+    "theme-toggle-light-icon"
+  );
+
+  if (
+    localStorage.getItem("gf-theme") === "dark" ||
+    (!("gf-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    themeToggleLightIcon.classList.remove("hidden");
+  } else {
+    themeToggleDarkIcon.classList.remove("hidden");
+  }
+
+  const themeToggleBtn = document.getElementById("theme-toggle");
+
+  themeToggleBtn.addEventListener("click", function () {
+    // toggle icons inside button
+    themeToggleDarkIcon.classList.toggle("hidden");
+    themeToggleLightIcon.classList.toggle("hidden");
+
+    // if set via local storage previously
+    if (localStorage.getItem("gf-theme")) {
+      if (localStorage.getItem("gf-theme") === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("gf-theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("gf-theme", "light");
+      }
+
+      // if NOT set via local storage previously
+    } else {
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("gf-theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("gf-theme", "dark");
+      }
+    }
+  });
+</script>
