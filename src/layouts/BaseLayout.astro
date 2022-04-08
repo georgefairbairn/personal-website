@@ -4,14 +4,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 import "../styles/global.css";
 
 const { title } = Astro.props;
-const { url } = Astro.request;
-
-let shouldShowBackButton: boolean;
-if (import.meta.env.DEV) {
-  shouldShowBackButton = url.toString() !== import.meta.env.PUBLIC_DEV_URL;
-} else {
-  shouldShowBackButton = url.toString() !== import.meta.env.PUBLIC_PROD_URL;
-}
+const { pathname } = new URL(Astro.request.url);
 ---
 
 <html lang="en">
@@ -33,7 +26,7 @@ if (import.meta.env.DEV) {
     class="font-sans py-16 max-w-7xl m-auto h-screen bg-stone-100 dark:bg-slate-900"
   >
     <nav class="flex justify-between items-center mb-20">
-      {shouldShowBackButton && <NavIcon icon="back" />}
+      {pathname !== "/" && <NavIcon icon="back" />}
       <div class="flex flex-1 justify-end items-center">
         <NavIcon icon="twitter" />
         <NavIcon icon="github" />
