@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Email from "../components/Email.astro";
+import DMLink from "../components/DMLink.astro";
 ---
 
 <BaseLayout title="Contact me">
@@ -9,5 +10,19 @@ import Email from "../components/Email.astro";
   >
     Contact me
   </h2>
-  <Email />
+  <div class="flex justify-between my-24 w-full">
+    <Email />
+    <div class="flex flex-col w-6/12 items-end">
+      <DMLink
+        icon="twitter"
+        link="https://twitter.com/messages/compose?recipient_id=1143228992952176645"
+        text="DM me on Twitter"
+      />
+      <DMLink
+        icon="linkedin"
+        link="https://www.linkedin.com/in/george-fairbairn/"
+        text="DM me on LinkedIn"
+      />
+    </div>
+  </div>
 </BaseLayout>

@@ -40,6 +40,7 @@ module.exports = {
       twitter: "#1DA1F2",
       github: "#6E5494",
       linkedin: "#0072B1",
+      slack: "#611F69",
     }),
     columns: {
       auto: "auto",

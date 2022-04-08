@@ -1,0 +1,23 @@
+---
+import SvgIcon from "./SvgIcon.astro";
+
+const { link, text, icon } = Astro.props;
+
+const backgroundColors = {
+  linkedin: "bg-linkedin",
+  slack: "bg-slack",
+  twitter: "bg-twitter",
+};
+---
+
+<a href={link} class="w-8/12 mb-6" target="_blank" rel="noopener noreferrer">
+  <div
+    class={`flex rounded p-6 items-center justify-center ${backgroundColors[icon]}`}
+  >
+    {icon === 'slack' ? <img
+        class="inline h-7 w-7 mr-1"
+        src={`${import.meta.env.PUBLIC_CLOUDINARY_URL}/Slack_zhfq4x`}
+      /> : <SvgIcon {icon} className="h-7 w-7 fill-white" />}
+    <span class="text-white font-bold text-2xl ml-4">{text}</span>
+  </div>
+</a>
