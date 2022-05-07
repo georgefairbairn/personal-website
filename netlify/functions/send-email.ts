@@ -6,7 +6,7 @@ const handler: Handler = async (event) => {
 
     mail.setApiKey(process.env.SENDGRID_API_KEY);
     mail.send({
-      from: "George Fairbairn - Website Contact Form <georgefairbairn.portfolio@gmail.com>",
+      from: "George Fairbairn - Website Contact Form <inbox@georgefairbairn.dev>",
       to: "George Fairbairn <george.fair@icloud.com>",
       subject,
       text: `New message from ${from}: ${message}`,
