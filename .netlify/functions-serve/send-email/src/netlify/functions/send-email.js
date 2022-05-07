@@ -4712,19 +4712,26 @@ __export(exports, {
   handler: () => handler
 });
 var import_mail = __toModule(require_mail3());
+import_mail.default.setApiKey(process.env.SENDGRID_API_KEY);
 var handler = async (event) => {
   const { from, subject, message } = JSON.parse(event.body);
-  import_mail.default.setApiKey(process.env.SENDGRID_API_KEY);
-  import_mail.default.send({
-    from: "George Fairbairn - Website Contact Form <georgefairbairn.portfolio@gmail.com>",
-    to: "George Fairbairn <george.fair@icloud.com>",
-    subject,
-    text: `New message from ${from}: ${message}`
-  });
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ from, subject, message })
-  };
+  try {
+    await import_mail.default.send({
+      from: "George Fairbairn - Website Contact Form <inbox@georgefairbairn.dev>",
+      to: "George Fairbairn <george.fair@icloud.com>",
+      subject,
+      text: `New message from ${from}: ${message}`
+    });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Email sent." })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Error sending email." })
+    };
+  }
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
