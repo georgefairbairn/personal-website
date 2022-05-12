@@ -39,8 +39,10 @@ const projects = {
       logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/Slack_zhfq4x`,
     },
     dates: "August 2021 - January 2022",
-    content:
-      "This project aimed to improve the invite experience when adding people outside your workspace to a channel using Slack Connect. I helped build a step-by-step flow that guided users to send the correct invite type in a thoughtfully designed, intelligently architected and pleasant experience.<br /><br />This was a key company project and led to increased Slack Connect channel adoption and a reduction in Slack Connect invites accidentally sent to internal teammates.",
+    content: [
+      "This project aimed to improve the invite experience when adding people outside your workspace to a channel using Slack Connect. I helped build a step-by-step flow that guided users to send the correct invite type in a thoughtfully designed, intelligently architected and pleasant experience.",
+      "This was a key company project and led to increased Slack Connect channel adoption and a reduction in Slack Connect invites accidentally sent to internal teammates.",
+    ],
     technologies: ["typescript", "react", "javascript", "redux", "jest"],
   },
   voleo: {
@@ -53,8 +55,10 @@ const projects = {
       }/convergence_logo_wh6t5r.svg`,
     },
     dates: "November 2019 - April 2020",
-    content:
-      "Voleo is a social trading platform allowing users to join trading groups and make investment decisions as a team. In this project, I worked on the front-end of the site, implementing the login & account creation flows, as well as the trade creation pages.<br /><br />I implemented a re-usable mechanism to interact with the Voleo API&apos;s, and leveraged NPM graphing libraries like Chart.js to visualise trading data. I also helped to build the counterpart native mobile application in React Native.",
+    content: [
+      "Voleo is a social trading platform allowing users to join trading groups and make investment decisions as a team. In this project, I worked on the front-end of the site, implementing the login & account creation flows, as well as the trade creation pages.",
+      "I implemented a re-usable mechanism to interact with the Voleo API’s, and leveraged NPM graphing libraries like Chart.js to visualise trading data. I also helped to build the counterpart native mobile application in React Native.",
+    ],
     technologies: ["react", "javascript", "chartjs"],
   },
 };
@@ -67,7 +71,7 @@ const projects = {
         <h3 class="text-2xl font-bold dark:text-slate-200">
           {projects[project].title}
         </h3>
-        <p class="flex items-center text-xs mt-1 mb-3.5 dark:text-slate-400">
+        <p class="flex items-center text-xs mt-1 dark:text-slate-400">
           <img
             class="inline h-auto w-4 mr-1"
             src={`${projects[project].company.logo}`}
@@ -75,7 +79,9 @@ const projects = {
           <strong>{`${projects[project].company.name}`}&nbsp;</strong>
           {`| ${projects[project].dates}`}
         </p>
-        <p class="dark:text-slate-400">{projects[project].content}</p>
+        {projects[project].content.map((project: string) => (
+          <p class="dark:text-slate-400 mt-3.5">{project}</p>
+        ))}
         <div class="mt-10">
           <h4 class="font-bold dark:text-slate-200">Technologies used:</h4>
           <div class="flex">
@@ -108,7 +114,9 @@ const projects = {
           <strong>{`${projects[project].company.name}`}&nbsp;</strong>
           {`| ${projects[project].dates}`}
         </p>
-        <p class="dark:text-slate-400">{projects[project].content}</p>
+        {projects[project].content.map((project: string) => (
+          <p class="dark:text-slate-400 mt-3.5">{project}</p>
+        ))}
         <div class="mt-10">
           <h4 class="font-bold dark:text-slate-200">Technologies used:</h4>
           <div class="flex">
