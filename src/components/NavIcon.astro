@@ -22,7 +22,7 @@ const iconMap = {
 <a
   href={iconMap[icon].link}
   class={`flex items-center dark:fill-white ${
-    icon === "back" ? "ml-0" : "ml-8"
+    icon === "back" ? "ml-0 hidden md:block" : "md:ml-8"
   } ${
     icon === "twitter"
       ? "hover:fill-twitter focus:fill-twitter dark:hover:fill-twitter dark:focus:fill-twitter"

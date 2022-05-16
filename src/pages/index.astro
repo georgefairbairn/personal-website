@@ -7,8 +7,16 @@ import ContactMeCard from "../components/cards/ContactMeCard.astro";
 
 <BaseLayout title="Home">
   <Profile />
-  <div class="flex justify-evenly">
+  <div
+    class="border-b border-b-slate-300 dark:border-b-slate-400 mx-8 my-20 md:hidden"
+  >
+  </div>
+  <div class="flex flex-col md:flex-row justify-evenly">
     <PortfolioCard />
+    <div
+      class="border-b border-b-slate-300 dark:border-b-slate-400 mx-8 my-20 md:hidden"
+    >
+    </div>
     <ContactMeCard />
   </div>
 </BaseLayout>
