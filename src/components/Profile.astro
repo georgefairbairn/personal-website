@@ -1,13 +1,18 @@
-<div class="flex justify-center items-center mb-32">
-  <div>
+<div
+  class="flex flex-col md:flex-row justify-center items-center mb-20 md:mb-32 px-4 md:px-0"
+>
+  <div class="flex items-center justify-between">
     <img
-      class="h-40 w-40 rounded-full mr-10"
+      class="h-32 w-32 md:h-40 md:w-40 rounded-full md:mr-10"
       src={`${import.meta.env.PUBLIC_CLOUDINARY_URL}/profilpicsquare_qphjkn`}
       alt="profile picture"
     />
+    <h1 class="font-bold text-4xl mb-3 dark:text-slate-200 ml-4 md:hidden">
+      George Fairbairn
+    </h1>
   </div>
-  <div class="flex flex-col justify-between">
-    <h1 class="font-bold text-5xl mb-3 dark:text-slate-200">
+  <div class="flex flex-col justify-between mt-10 md:mt-0">
+    <h1 class="font-bold text-5xl mb-3 dark:text-slate-200 hidden md:block">
       George Fairbairn
     </h1>
     <p class="max-w-lg dark:text-slate-400">

@@ -38,7 +38,7 @@ const projects = {
       name: "Slack",
       logo: `${import.meta.env.PUBLIC_CLOUDINARY_URL}/Slack_zhfq4x`,
     },
-    dates: "August 2021 - January 2022",
+    dates: "Aug 2021 - Jan 2022",
     content: [
       "This project aimed to improve the invite experience when adding people outside your workspace to a channel using Slack Connect. I helped build a step-by-step flow that guided users to send the correct invite type in a thoughtfully designed, intelligently architected and pleasant experience.",
       "This was a key company project and led to increased Slack Connect channel adoption and a reduction in Slack Connect invites accidentally sent to internal teammates.",
@@ -54,7 +54,7 @@ const projects = {
         import.meta.env.PUBLIC_CLOUDINARY_URL
       }/convergence_logo_wh6t5r.svg`,
     },
-    dates: "November 2019 - April 2020",
+    dates: "Nov 2019 - Apr 2020",
     content: [
       "Voleo is a social trading platform allowing users to join trading groups and make investment decisions as a team. In this project, I worked on the front-end of the site, implementing the login & account creation flows, as well as the trade creation pages.",
       "I implemented a re-usable mechanism to interact with the Voleo API’s, and leveraged NPM graphing libraries like Chart.js to visualise trading data. I also helped to build the counterpart native mobile application in React Native.",
@@ -64,10 +64,11 @@ const projects = {
 };
 ---
 
-<div class="flex my-24">
+<div class="md:flex my-10 md:my-24 px-4 md:px-0">
   {flip ? (
     <>
-      <div class="mr-8 max-w-2xl">
+      <img class="flex-1 md:hidden" src={projects[project].imgSrc} />
+      <div class="md:mr-8 max-w-2xl mt-6 md:mt-0">
         <h3 class="text-2xl font-bold dark:text-slate-200">
           {projects[project].title}
         </h3>
@@ -97,12 +98,12 @@ const projects = {
           </div>
         </div>
       </div>
-      <img class="flex-1" src={projects[project].imgSrc} />
+      <img class="flex-1 hidden md:block" src={projects[project].imgSrc} />
     </>
   ) : (
     <>
       <img class="flex-1" src={projects[project].imgSrc} />
-      <div class="ml-8 max-w-2xl">
+      <div class="md:ml-8 max-w-2xl mt-6 md:mt-0">
         <h3 class="text-2xl font-bold dark:text-slate-200">
           {projects[project].title}
         </h3>

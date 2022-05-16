@@ -44,7 +44,7 @@ const Email = () => {
 
   return (
     <form
-      className="flex flex-col bg-white dark:bg-slate-600 rounded w-6/12 p-8"
+      className="flex flex-col bg-white dark:bg-slate-600 rounded md:w-6/12 p-4 md:p-8 mx-2 md:mx-0"
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col items-center w-full dark:text-slate-200 mb-4">
@@ -101,7 +101,7 @@ const Email = () => {
             name="subject"
             className="w-full font-bold outline-none placeholder:font-normal dark:bg-slate-600 disabled:bg-white"
             type="text"
-            placeholder="The reason for your message"
+            placeholder="Reason for your message"
             value={subject}
             onChange={handleChange}
             disabled={isSent}

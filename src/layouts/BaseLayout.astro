@@ -8,6 +8,7 @@ const { pathname } = new URL(Astro.request.url);
 ---
 
 <html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <head>
     <title>George Fairbairn | {title}</title>
     <script>
@@ -23,11 +24,11 @@ const { pathname } = new URL(Astro.request.url);
     </script>
   </head>
   <body
-    class="font-sans py-16 max-w-7xl m-auto h-screen bg-stone-100 dark:bg-slate-900"
+    class="font-sans py-8 md:py-16 max-w-7xl m-auto h-screen bg-stone-100 dark:bg-slate-900 md:px-4"
   >
-    <nav class="flex justify-between items-center mb-20">
+    <nav class="flex justify-between items-center mb-10 md:mb-20">
       {pathname !== "/" && <NavIcon icon="back" />}
-      <div class="flex flex-1 justify-end items-center">
+      <div class="flex flex-1 justify-around md:justify-end items-center">
         <NavIcon icon="twitter" />
         <NavIcon icon="github" />
         <NavIcon icon="linkedin" />

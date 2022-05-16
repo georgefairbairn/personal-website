@@ -6,13 +6,13 @@ import DMLink from "../components/DMLink.astro";
 
 <BaseLayout title="Contact me">
   <h2
-    class="text-4xl font-bold border-b border-b-slate-300 dark:border-b-slate-400 pb-4 dark:text-slate-200"
+    class="text-4xl font-bold border-b border-b-slate-300 dark:border-b-slate-400 pb-4 dark:text-slate-200 mx-4 md:mx-0"
   >
     Contact me
   </h2>
-  <div class="flex justify-between my-24 w-full">
+  <div class="flex flex-col md:flex-row justify-between my-10 md:my-24 w-full">
     <Email client:load />
-    <div class="flex flex-col w-6/12 items-end">
+    <div class="flex flex-col md:w-6/12 md:items-end mt-20 md:mt-0">
       <DMLink
         icon="twitter"
         link="https://twitter.com/messages/compose?recipient_id=1143228992952176645"
