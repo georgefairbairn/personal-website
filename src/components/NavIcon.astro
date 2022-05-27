@@ -21,6 +21,7 @@ const iconMap = {
 
 <a
   href={iconMap[icon].link}
+  aria-label={icon}
   class={`flex items-center dark:fill-white ${
     icon === "back" ? "ml-0 hidden md:block" : "md:ml-8"
   } ${

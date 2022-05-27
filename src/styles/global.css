@@ -6,51 +6,15 @@
   font-family: Raleway;
   src: url("/fonts/Raleway-Bold.ttf");
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Raleway;
   src: url("/fonts/Raleway-Regular.ttf");
+  font-display: swap;
 }
 
 html {
   font-size: 15px;
 }
-
-/* body {
-  padding: 4rem 0;
-  max-width: 76rem;
-  margin: auto;
-  font-family: Raleway;
-  height: 100vh;
-  background-color: #f4f4f4;
-}
-
-body.dark-theme {
-  color: #ffffff;
-  background-color: #2b303f;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-h1 {
-  font-size: 3.2rem;
-}
-
-h2 {
-  font-size: 2.4rem;
-}
-
-h3 {
-  font-size: 1.6rem;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-} */

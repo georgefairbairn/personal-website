@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Email from "../components/Email.tsx";
+import Email from "../components/Email";
 import DMLink from "../components/DMLink.astro";
 ---
 
 <BaseLayout title="Contact me">
-  <h2
+  <h1
     class="text-4xl font-bold border-b border-b-slate-300 dark:border-b-slate-400 pb-4 dark:text-slate-200 mx-4 md:mx-0"
   >
     Contact me
-  </h2>
+  </h1>
   <div class="flex flex-col md:flex-row justify-between my-10 md:my-24 w-full">
     <Email client:load />
     <div class="flex flex-col md:w-6/12 md:items-end mt-20 md:mt-0">
