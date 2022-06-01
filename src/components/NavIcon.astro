@@ -1,7 +1,7 @@
 ---
-import SvgIcon from "./SvgIcon.tsx";
+import SvgIcon from "./SvgIcon";
 
-const { icon, link } = Astro.props;
+const { icon } = Astro.props;
 
 const iconMap = {
   twitter: {
@@ -13,18 +13,18 @@ const iconMap = {
   linkedin: {
     link: "https://www.linkedin.com/in/george-fairbairn/",
   },
-  back: {
-    link: link ?? "/",
-  },
 };
+
+const isBackIcon = icon === 'back' || icon === 'back_mobile';
 ---
 
 <a
-  href={iconMap[icon].link}
+  href={isBackIcon ? "/" : iconMap[icon].link}
   aria-label={icon}
   class={`flex items-center dark:fill-white ${
     icon === "back" ? "ml-0 hidden md:block" : "md:ml-8"
   } ${
+    icon === "back_mobile" && "md:hidden"} ${
     icon === "twitter"
       ? "hover:fill-twitter focus:fill-twitter dark:hover:fill-twitter dark:focus:fill-twitter"
       : ""
@@ -37,8 +37,8 @@ const iconMap = {
       ? " hover:fill-linkedin focus:fill-linkedin dark:hover:fill-linkedin dark:focus:fill-linkedin"
       : ""
   }`}
-  target={icon === "back" ? "" : "_blank"}
-  rel={icon === "back" ? "" : "noopener noreferrer"}
+  target={isBackIcon ? "" : "_blank"}
+  rel={isBackIcon ? "" : "noopener noreferrer"}
 >
-  <SvgIcon {icon} />
+  <SvgIcon icon={isBackIcon ? 'back' : icon} />
 </a>

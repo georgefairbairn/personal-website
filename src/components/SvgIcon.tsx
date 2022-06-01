@@ -25,7 +25,7 @@ const icons = {
   },
 };
 
-const SvgIcon = ({ className, icon }: { className: string; icon: string }) => (
+const SvgIcon = ({ className, icon }: { className?: string; icon: string }) => (
   <svg
     className={className ?? "h-7 w-7"}
     aria-hidden="true"

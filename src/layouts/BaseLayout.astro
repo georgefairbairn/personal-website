@@ -37,6 +37,7 @@ const { pathname } = new URL(Astro.request.url);
     <nav class="flex justify-between items-center mb-10 md:mb-20">
       {pathname !== "/" && <NavIcon icon="back" />}
       <div class="flex flex-1 justify-around md:justify-end items-center">
+        {pathname !== "/" && <NavIcon icon="back_mobile" />}
         <NavIcon icon="twitter" />
         <NavIcon icon="github" />
         <NavIcon icon="linkedin" />
